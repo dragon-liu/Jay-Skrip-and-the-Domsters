@@ -430,7 +430,7 @@ function submitFormWithAjax( whichform, thetarget ) {
   }
   var data = dataParts.join('&');
 
-  request.open('POST', whichform.getAttribute("action"), true);
+  request.open('GET', whichform.getAttribute("action"), true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   request.onreadystatechange = function () {
