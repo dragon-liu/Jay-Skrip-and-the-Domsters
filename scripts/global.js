@@ -406,9 +406,6 @@ while (element.hasChildNodes()) {
 var content = document.createElement("img");
 content.setAttribute("src","images/loading.gif");
 content.setAttribute("alt","Loading...");
-//设置宽高以免过小看不见
-content.style.width = "50px";
-content.style.height = "50px";
 // Append the loading element.
 element.appendChild(content);
 }
@@ -429,10 +426,9 @@ function submitFormWithAjax( whichform, thetarget ) {
     dataParts[i] = element.name + '=' + encodeURIComponent(element.value);
   }
   var data = dataParts.join('&');
-
+  //因为我用的是Github的服务器，不支持Post请求
   request.open('GET', whichform.getAttribute("action"), true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
   request.onreadystatechange = function () {
     if (request.readyState == 4) {
         if (request.status == 200 || request.status == 0) {
@@ -449,7 +445,6 @@ function submitFormWithAjax( whichform, thetarget ) {
   };
 
   request.send(data);
-   
   return true;
 };
 
