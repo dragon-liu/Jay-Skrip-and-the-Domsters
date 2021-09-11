@@ -406,6 +406,9 @@ while (element.hasChildNodes()) {
 var content = document.createElement("img");
 content.setAttribute("src","images/loading.gif");
 content.setAttribute("alt","Loading...");
+//设置宽高以免过小看不见
+content.style.width = "50px";
+content.style.height = "50px";
 // Append the loading element.
 element.appendChild(content);
 }
